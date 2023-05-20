@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<h2>Add funds to your accound</h2>
+    <h3>Total fund: ${{ user.credit.credit|floatformat:2 }}</h3>
+
+    <div class="card" style="padding: 20px; margin: 20px;">
+    <form method="POST">
+        {% csrf_token %}
+        <label>
+            <input type="number" step="0.01" name="amount" placeholder="Amount" class="form-control" required>
+        </label>
+        <br>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+        <div class="card" style="padding: 20px; margin: 20px; display: inline-block">
+            <h3>Quick add</h3>
+
+            <form style="display: inline" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="amount" value="1">
+                <button type="submit" class="btn btn-danger">$1.00</button>
+            </form>
+            <form style="display: inline" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="amount" value="5">
+                <button type="submit" class="btn btn-danger">$5.00</button>
+            </form>
+            <form style="display: inline" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="amount" value="10">
+                <button type="submit" class="btn btn-danger">$10.00</button>
+            </form>
+            <form style="display: inline" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="amount" value="20">
+                <button type="submit" class="btn btn-danger">$20.00</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+User: ethannaugle
+Date: 2023-05-20 17:02:12.177252
+Starting Credit: $0.0
+Ending Credit: $-2.0
+Items:
+
+    Oreo - 4    $2.0
+
+Total: $2.0

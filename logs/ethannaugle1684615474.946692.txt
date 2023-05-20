@@ -1,0 +1,8 @@
+User: ethannaugle
+Date: 2023-05-20 16:44:34.947692
+Items:
+
+    Oreo - 1    $0.5
+    Now and Later Bites - 1    $1.0
+
+Total: $1.5

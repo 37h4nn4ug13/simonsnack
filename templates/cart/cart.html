@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <h1>{{ user.username }}'s Cart</h1>
+    <ul class="list-group">
+    {% for item in items %}
+
+
+        <div class="row" style="padding: 10px; border: black solid 2px; border-radius: 5px">
+            <div class="col">
+                {{  item.item.name }}
+            </div>
+            <div class="col">
+                Quantity: {{  item.quantity }}
+            </div>
+            <div class="col">
+                ${{ item.get_total_price|floatformat:2 }}
+            </div>
+            <div class="col">
+                <a href="#" style="color: red">remove</a>
+            </div>
+          </div>
+
+    {% empty %}
+        <li>
+        <div style="padding: 10px; border-radius: 5px; border: black solid 1px;">
+        No items in the cart
+        </div>
+        </li>
+    {% endfor %}
+
+    </ul>
+    <div class="card" style="padding: 20px; margin-top: 30px;">
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="checkout" value="True">
+        <div class="form-check form-switch">
+          <input style="width: 20px; height: 20px;" type="checkbox" id="flexSwitchCheckChecked" value="True" name="cash" checked>
+          <label style="font-size: larger" class="form-check-label" for="flexSwitchCheckChecked">Cash purchase</label>
+        </div>
+        <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Checkout | total: ${{ cart.get_total_cart_price|floatformat:2 }}</button>
+    </form>
+    </div>
+{% endblock %}

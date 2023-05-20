@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<h1>Home</h1>
+
+    <form method="POST" style="width: 100%">
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
+          <label for="floatingInput">Username</label>
+        </div>
+        <input type="hidden" name="password" value="password"/>
+        <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+    </form>
+{% endblock %}
